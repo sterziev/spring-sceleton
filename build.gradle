@@ -1,0 +1,54 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+//	//swagger ui
+//	implementation "io.springfox:springfox-swagger2:2.9.2"
+//	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.4'
+
+
+	//model mapper
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.5'
+
+	//mongo
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+	// validation
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+
+
+	//security
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	implementation group: 'org.springframework.security', name: 'spring-security-oauth2-client', version: '5.3.2.RELEASE'
+//	implementation group: 'org.springframework.security.oauth', name: 'spring-security-oauth2'
+	implementation group: 'org.springframework.security', name: 'spring-security-oauth2-jose', version: '5.3.2.RELEASE'
+}
+
+test {
+	useJUnitPlatform()
+}

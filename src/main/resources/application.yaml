@@ -1,0 +1,21 @@
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      database: emenu
+      host: localhost
+      password: ezbobuser
+      port: 27017
+      username: ezbobuser
+
+security:
+  jwt:
+    uri: /auth/login/**
+    header: Authorization
+    prefix: Bearer
+    expiration: 7776000000
+    secret: JwtSecretKey
+
+logging:
+  level:
+    com: DEBUG
